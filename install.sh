@@ -1,4 +1,7 @@
 #!/bin/sh
+#checkversion
+#openssl version
+#stunnel -version
 #download 
 wget https://www.stunnel.org/downloads/stunnel-4.56.tar.gz --no-check-certificate
 wget http://3proxy.ru/current/3proxy-0.7-devel.tgz
