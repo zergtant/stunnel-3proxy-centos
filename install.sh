@@ -1,4 +1,7 @@
 #!/bin/sh
+
+#ulimit -HSn 65536
+#ulimit -n
 #checkversion
 #openssl version
 #stunnel -version
