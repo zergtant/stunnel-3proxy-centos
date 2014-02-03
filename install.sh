@@ -4,7 +4,8 @@ wget https://www.stunnel.org/downloads/stunnel-4.56.tar.gz --no-check-certificat
 wget http://3proxy.ru/current/3proxy-0.7-devel.tgz
 tar zxvf stunnel-4.56.tar.gz
 tar zxvf 3proxy-0.7-devel.tgz
-yum install openssl openssl-devel 
+yum install openssl openssl-devel
+#yum install openssl*
 
 
 #3proxy
@@ -35,3 +36,5 @@ connect = 22222
 EOF
 # linux must setting pid
 /usr/local/bin/stunnel
+
+#ps -ef | grep stunnel
