@@ -23,7 +23,7 @@ internal 127.0.0.1
 auth none
 socks -p22222
 EOF
-3proxy /etc/3proxy.cfg &
+#3proxy /etc/3proxy.cfg &
 
 
 cd ../stunnel-4.56
@@ -41,6 +41,20 @@ accept  = 443
 connect = 22222
 EOF
 # linux must setting pid
-/usr/local/bin/stunnel
+#/usr/local/bin/stunnel
 
 #ps -ef | grep stunnel
+# add auto start after reboot
+cat > /etc/rc.local << EOF
+
+/usr/local/bin/stunnel
+/usr/local/bin/3proxy /etc/3proxy.cfg &
+
+EOF
+
+#add iptables rule 
+#iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+#iptables -L -n
+#service iptables save
+#check port
+#netstat -ntlp
