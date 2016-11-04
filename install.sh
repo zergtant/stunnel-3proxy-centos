@@ -6,16 +6,16 @@
 #openssl version
 #stunnel -version
 #download 
-wget https://www.stunnel.org/downloads/stunnel-4.56.tar.gz --no-check-certificate
-wget http://3proxy.ru/current/3proxy-0.7-devel.tgz
-tar zxvf stunnel-4.56.tar.gz
-tar zxvf 3proxy-0.7-devel.tgz
+wget https://www.stunnel.org/downloads/stunnel-5.36.tar.gz --no-check-certificate
+wget https://github.com/z3APA3A/3proxy/archive/3proxy-0.8.7.tar.gz
+tar zxvf stunnel-5.36.tar.gz
+tar zxvf 3proxy-0.8.7.tar.gz
 yum install openssl openssl-devel
 #yum install openssl*
 
 
 #3proxy
-cd 3proxy-0.7-devel
+cd 3proxy-3proxy-0.8.7
 make -f Makefile.Linux
 make -f Makefile.Linux install
 cat > /etc/3proxy.cfg << EOF
@@ -26,7 +26,7 @@ EOF
 #3proxy /etc/3proxy.cfg &
 
 
-cd ../stunnel-4.56
+cd ../stunnel-5.36
 #stunnel
 ./configure
 make
