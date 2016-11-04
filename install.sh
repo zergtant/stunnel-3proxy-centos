@@ -58,3 +58,7 @@ EOF
 #service iptables save
 #check port
 #netstat -ntlp
+
+#make cert
+#openssl gendh 2048 >> stunnel.pem
+#http://www.stunnel.org/howto.html
