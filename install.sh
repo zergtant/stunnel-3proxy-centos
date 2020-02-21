@@ -32,6 +32,9 @@ cd ../stunnel-5.36
 make
 make install
 cat > /usr/local/etc/stunnel/stunnel.conf << EOF
+socket = l:TCP_NODELAY=1
+#for client
+#socket = r:TCP_NODELAY=1
 output = /usr/local/etc/stunnel/stunnel.log
 cert = /usr/local/etc/stunnel/stunnel.pem
 pid = /usr/local/etc/stunnel/stunnel.pid
@@ -48,7 +51,7 @@ EOF
 cat > /etc/rc.local << EOF
 
 /usr/local/bin/stunnel
-/usr/local/bin/3proxy /etc/3proxy.cfg &
+/usr/local/bin/3proxy /etc/3proxy.cfg -osTCP_NODELAY -ocTCP_NODELAY &
 
 EOF
 
@@ -62,3 +65,6 @@ EOF
 #make cert
 #openssl gendh 2048 >> stunnel.pem
 #http://www.stunnel.org/howto.html
+
+#highload
+#https://3proxy.ru/highload.asp
